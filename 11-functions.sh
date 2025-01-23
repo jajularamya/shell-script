@@ -30,11 +30,12 @@ then
  fi
 
 dnf list installed git
+
 if [ $? -ne 0]
 then
 dnf install git -y
-VALIDATE $? "installing git
-
+VALIDATE $? "installing git"
 else
 echo "git is already ...installed"
+
 fi
