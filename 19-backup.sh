@@ -26,11 +26,11 @@ fi
 }
 USAGE(){
       echo -e "$R USAGE:: $N sh 19-backup.sh <SOUR_DIR> <DEST_DIR> <DAYS(optional)>"
-      }
-if[ $# -lt 2 ]
+ }
+ 
+if [ $# -lt 2 ]
 then
-USAGE
-
+  USAGE
 fi
 
 echo "script started excecuting at: $TIMESTAMP" &>>$LOG_FILE_NAME
