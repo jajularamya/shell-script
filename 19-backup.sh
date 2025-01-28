@@ -17,12 +17,13 @@ LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
 
 USAGE(){
-      echo -e "$R USAGE:: $N sh 19-backup.sh <SOUR_DIR> <DEST_DIR> <DAYS(optional)>"
+      #echo -e "$R USAGE:: $N sh 19-backup.sh <SOUR_DIR> <DEST_DIR> <DAYS(optional)>"
+      echo -e "$R USAGE:: $N backup <SOUR_DIR> <DEST_DIR> <DAYS(optional)>"
       exit 1
  }
 
  mkdir -p /home/ec2-user/shellscript-logs/
- echo "filename: $0"
+# echo "filename: $0"
 
 if [ $# -lt 2 ] #$# means no of parameters 
 then
