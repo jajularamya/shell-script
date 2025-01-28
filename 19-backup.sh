@@ -11,7 +11,7 @@ DEST_DIR=$2
 DAYS=${3:-14} #IF USER NOT PROVIDE DAYS , WE TAKE 14DAYS AD DEFAULT
 
 LOGS_FOLDER="/home/ec2-user/shellscript-logs"
-LOG_FILE=$(echo $0 | cut -d "." -f1 )
+LOG_FILE=$(echo $0 | awk -F "/" '${print $NF}' | cut -d "." -f1 )
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
@@ -22,6 +22,7 @@ USAGE(){
  }
 
  mkdir -p /home/ec2-user/shellscript-logs/
+ echo "filename: $0"
 
 if [ $# -lt 2 ] #$# means no of parameters 
 then
