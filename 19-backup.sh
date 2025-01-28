@@ -26,9 +26,11 @@ fi
 }
 USAGE(){
       echo -e "$R USAGE:: $N sh 19-backup.sh <SOUR_DIR> <DEST_DIR> <DAYS(optional)>"
+      exit 1
  }
 
  mkdir -p /home/ec2-user/shellscript-logs/
+ 
 if [ $# -lt 2 ]
 then
   USAGE
