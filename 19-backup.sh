@@ -21,7 +21,7 @@ USAGE(){
       exit 1
  }
 
- mkdir -p /home/ec2-user/shellscript-logs/
+ mkdir -p /home/ec2-user/shellscript-logs
 
 if [ $# -lt 2 ] #$# means no of parameters 
 then
