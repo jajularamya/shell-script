@@ -15,15 +15,7 @@ LOG_FILE=$(echo $0 | cut -d "." -f1 )
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
-VALIDATE(){
-     if [ $1 -ne 0 ]
-then
-   echo -e "$2... $R failure $N"
-   exit 1
-else
-   echo -e "$2... $G success $N"
-fi
-}
+
 USAGE(){
       echo -e "$R USAGE:: $N sh 19-backup.sh <SOUR_DIR> <DEST_DIR> <DAYS(optional)>"
       exit 1
@@ -58,6 +50,19 @@ then
  echo "files are: $FILES"
  ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
  find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
+ if [ -f "$ZIP_FILE"]
+ then
+  echo -e "successfully created zip file for files older than $DAYS" 
+  while read -r filepath
+  do  
+     echo "deleting file: $filepath" &>>$LOG_FILE_NAME
+     rm -rf $filepath
+     echo "deleted file: $filepath"
+    done <<< $FILES
+ else
+   echo -e "$R error:: $N failed to create zip file"
+   exit 1
+   fi
  
  else
   echo "no files are found older than $DAYS"
