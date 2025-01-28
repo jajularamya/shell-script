@@ -31,9 +31,21 @@ USAGE(){
 
  mkdir -p /home/ec2-user/shellscript-logs/
 
-if [ $# -lt 2 ]
+if [ $# -lt 2 ] #$# means no of parameters 
 then
   USAGE
 fi
+
+if [ ! -d $SOURCE_DIR ]
+then
+ echo -e "$SOURCE_DIR does not exists... please check"
+ exit 1
+fi
+
+if [ ! -d $DEST_DIR ]
+then
+ echo -e "$DEST_DIR does not exists... please check"
+ exit 1
+ fi
 
 echo "script started excecuting at: $TIMESTAMP" &>>$LOG_FILE_NAME
