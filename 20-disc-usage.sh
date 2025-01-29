@@ -14,3 +14,4 @@ do
 done <<< $DISC_USAGE
 
 echo -e "message: $MSG"
+echo "$MSG" | mutt -s "HIGH DISC USAGE" ramyajajula111@gmail.com
