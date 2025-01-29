@@ -9,7 +9,7 @@ do
   #echo "parition: $PARTITION , usage: $USAGE"
   if [ $USAGE -ge $DISC_THRESHOLD ]
   then
-   MSG="high disc message on partition: $PARTITION usage is: $USAGE"
+   MSG+="high disc message on partition: $PARTITION usage is: $USAGE"
   fi 
 done <<< $DISC_USAGE
 
